@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal • Welcome</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Auth Card -->
+  <main class="auth-wrap" id="authWrap">
+    <div class="auth-card">
+
+      <!-- Decorative Sparkle -->
+      <div class="sparkle-icon">✨</div>
+
+      <!-- Navigation Tabs -->
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab-btn active" id="loginTabBtn" role="tab" aria-selected="true">Sign In</button>
+        <button type="button" class="tab-btn" id="signupTabBtn" role="tab" aria-selected="false">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form" novalidate>
+        <h2>Welcome back 🌸</h2>
+        <p class="sub-text">Please sign in to access your space.</p>
+
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" placeholder="hello@domain.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required>
+        </div>
+
+        <div id="loginMsg" class="msg" aria-live="polite"></div>
+
+        <button type="submit" class="submit-btn">Sign In</button>
+        <p class="switch-text">New here? <a href="#" id="switchToSignup">Create an account</a></p>
+      </form>
+
+      <!-- Signup Form -->
+      <form id="signupForm" class="auth-form hidden" novalidate>
+        <h2>Join Us 💕</h2>
+        <p class="sub-text">Fill in your details to get started.</p>
+
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" placeholder="Your full name" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail">Email Address</label>
+          <input type="email" id="signupEmail" placeholder="hello@domain.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" placeholder="6+ characters" autocomplete="new-password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupConfirm">Confirm Password</label>
+          <input type="password" id="signupConfirm" placeholder="Re-enter password" autocomplete="new-password" required>
+        </div>
+
+        <div id="signupMsg" class="msg" aria-live="polite"></div>
+
+        <button type="submit" class="submit-btn">Create Account</button>
+        <p class="switch-text">Already have an account? <a href="#" id="switchToLogin">Sign in</a></p>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- Secured Portal (Displayed on success) -->
+  <section class="secured-wrap hidden" id="securedWrap">
+    <div class="secured-card">
+      <div class="check-icon" aria-hidden="true">💖</div>
+      <h2 id="welcomeMsg">Welcome!</h2>
+      <p>Yay, you're logged in! Enjoy your secure space.</p>
+      <button type="button" class="logout-btn" id="logoutBtn">Sign Out</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pastel Calculator</title>
+
+<style>
+body{
+    background-image: url('calci.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1{
+    color: rgba(87, 9, 9, 0.603);
+    font-size: 56px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+/* ONE BOX FOR EVERYTHING */
+.calculator{
+    background: rgba(121, 9, 9, 0.507);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 190px;
+}
+
+/* DISPLAY */
+#display{
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    background: rgba(0,0,0,0.4);
+    box-sizing: border-box;
+}
+
+/* BUTTONS */
+button{
+    width: 38px;
+    height: 38px;
+    margin: 3px;
+    border: none;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.number{
+    background: #dcd6f7;
+}
+
+.operator{
+    background: #ffd6a5;
+}
+
+.equal{
+    background: #9bf6ff;
+}
+
+.clear{
+    background: #ffadad;
+}
+
+.special{
+    background: #caffbf;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Calculator</h1>
+
+<div class="calculator">
+
+    <input type="text" id="display" disabled>
+
+    <div>
+        <button class="clear" onclick="clearDisplay()">C</button>
+        <button class="operator" onclick="append('/')">÷</button>
+        <button class="operator" onclick="append('*')">×</button>
+        <button class="operator" onclick="append('-')">−</button>
+    </div>
+
+    <div>
+        <button class="number" onclick="append('7')">7</button>
+        <button class="number" onclick="append('8')">8</button>
+        <button class="number" onclick="append('9')">9</button>
+        <button class="operator" onclick="append('+')">+</button>
+    </div>
+
+    <div>
+        <button class="number" onclick="append('4')">4</button>
+        <button class="number" onclick="append('5')">5</button>
+        <button class="number" onclick="append('6')">6</button>
+        <button class="equal" onclick="calculate()">=</button>
+    </div>
+
+    <div>
+        <button class="number" onclick="append('1')">1</button>
+        <button class="number" onclick="append('2')">2</button>
+        <button class="number" onclick="append('3')">3</button>
+        <button class="special" onclick="square()">x²</button>
+    </div>
+
+    <div>
+        <button class="number" onclick="append('0')">0</button>
+        <button class="number" onclick="append('00')">00</button>
+        <button class="number" onclick="append('.')">.</button>
+        <button class="special" onclick="deleteLast()">Del</button>
+    </div>
+
+</div>
+
+<script>
+
+function append(value){
+    document.getElementById("display").value += value;
+}
+
+function clearDisplay(){
+    document.getElementById("display").value = "";
+}
+
+function deleteLast(){
+    let display = document.getElementById("display");
+    display.value = display.value.slice(0, -1);
+}
+
+function square(){
+    let display = document.getElementById("display");
+
+    if(display.value !== ""){
+        display.value = Math.pow(parseFloat(display.value), 2);
+    }
+}
+
+function calculate(){
+    try{
+        document.getElementById("display").value =
+        eval(document.getElementById("display").value);
+    }
+    catch{
+        alert("Invalid Expression");
+    }
+}
+
+</script>
+
+</body>
+</html>
